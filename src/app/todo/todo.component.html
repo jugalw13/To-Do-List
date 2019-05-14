@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="form-group">
+    <div class="sec-head">
+      <h1 class="text-responsive">To Do List</h1>
+    </div>
+    <div class="input-list-item">
+      <div class="form-field">
+        <mat-form-field class="input-form-field">
+          <input matInput placeholder="Enter item" name="todoItem" id="todoItem" [(ngModel)]="inputItem" (keyup.enter)="addItem()">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="dataItems">
+    <div class="item-wrapper" *ngFor="let item of todoList">
+      <div class="input-completed">
+        <mat-checkbox type="checkbox" (change)="editItem(item)"></mat-checkbox>
+      </div>
+      <div class="itemList">
+        <div class="list-item">
+          <div class="each-item" [ngClass]="{complete: item.complete}">
+            {{ item.name }}
+          </div>
+        </div>
+      </div>
+      <div class="delButton">
+        <i class="material-icons" (click)="deleteItem(item)">
+          delete
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
